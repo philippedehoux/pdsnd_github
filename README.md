@@ -60,5 +60,4 @@ README.md changed in branch documentation
 
 ### Refactoring section comments
 Add refactoring comments section
-
-
+Refactoring comment
