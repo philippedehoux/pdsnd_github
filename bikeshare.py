@@ -1,8 +1,9 @@
 # m23sawant based on.- running code
-# refactoring branch .py code version
 import time
+import random
 import pandas as pd
 import numpy as np
+
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -106,7 +107,7 @@ def time_stats(df):
     df['hour'] = df['Start Time'].dt.hour
     print('The most common start hour is: {}'.format(df['hour'].mode()[0]))
     
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s second(s)." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -213,3 +214,4 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
