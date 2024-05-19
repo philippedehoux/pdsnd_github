@@ -3,6 +3,7 @@
 import time
 import pandas as pd
 import numpy as np
+import random
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -10,6 +11,21 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 cities=['chicago','new york city','washington']
 months=['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December','All']
 days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','All']
+
+def Color(message, delay=0):
+    colors = {
+        'red': '\033[91m',
+        'purple': '\033[95m',
+        'blue': '\033[94m',
+        'cyan': '\033[96m',
+        'green': '\033[92m',
+        'orange': '\033[33m',
+        'yellow': '\033[93m',
+    }
+    chosen_color = random.choice(list(colors.values()))
+    print(chosen_color + message)
+    time.sleep(delay)
+    print('\033[1;37m' + '')  # turn off coloring
 
 def get_filters():
     """
@@ -105,8 +121,9 @@ def time_stats(df):
     # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     print('The most common start hour is: {}'.format(df['hour'].mode()[0]))
-    
-    print("\nThis took %s seconds." % (time.time() - start_time))
+   
+    Color("\nThis took %s second(s)." % (time.time() - start_time), delay=0)
+    # print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
